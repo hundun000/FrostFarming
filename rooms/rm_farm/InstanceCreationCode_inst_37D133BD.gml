@@ -1,0 +1,5 @@
+TARGET_ROOM=rm_house;
+TARGET_X=112;
+TARGET_Y=340;
+FACING_BRFORE=DirectionType.UP;
+FACING_AFTER=DirectionType.UP;

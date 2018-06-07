@@ -1,0 +1,5 @@
+TARGET_ROOM=noone;
+TARGET_X=-1;
+TARGET_Y=-1;
+FACING_BRFORE=noone;
+FACING_AFTER=noone;
