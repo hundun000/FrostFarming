@@ -10,6 +10,7 @@ ROLE_SPRITE_PART[i++]=spr_female_feet_shoes_black;
 
 DEFAULT_SPEED=NORMAL_SPEED;
 
+
 global.thisPlayer=id;
 
 

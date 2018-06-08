@@ -14,7 +14,7 @@ event_inherited();
 
 //Objects
 var ins_transition=instance_place(x,y,obj_tansition);
-if(ins_transition!=noone&&global.thisGame.tansitionAlpha<0){
+if(ins_transition!=noone&&m_facing==ins_transition.FACING_BRFORE&&global.thisGame.tansitionAlpha<0){
 	global.thisGame.spawnRoom=ins_transition.TARGET_ROOM;	
 	global.thisGame.spawnX=ins_transition.TARGET_X;
 	global.thisGame.spawnY=ins_transition.TARGET_Y;

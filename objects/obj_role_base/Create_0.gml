@@ -11,6 +11,7 @@ m_x_frame=1;
 m_y_frame=2;
 
 MAX_X_FRAME=8;
+FRAME_SIZE=64;
 
 var i=0;
 ROLE_SPRITE_PART[i++]=noone;

@@ -1,4 +1,4 @@
-#macro UNIT 64
+#macro UNIT 32
 
 enum DirectionType{
 	IDLE,
