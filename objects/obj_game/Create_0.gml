@@ -1,6 +1,6 @@
 #macro GAME_FPS 60
 #macro MANAGER_DEPTH 0
-#macro LAYER_INSTANCE_PICKABLE "Instances_pickable"
+#macro LAYER_INSTANCE "Instances"
 
 game_set_speed(GAME_FPS, gamespeed_fps);
 randomize();
@@ -20,5 +20,7 @@ GUI_HEIGHT=display_get_gui_height();
 room_goto_next();
 
 cropsManager=instance_create_depth(0,0,MANAGER_DEPTH,obj_cropsManager);
+depthSystemDrawer=instance_create_layer(0,0,LAYER_INSTANCE,obj_depthSystemDrawer);
+timeManager=instance_create_depth(0,0,MANAGER_DEPTH,obj_timeManager);
 
 debug=true;

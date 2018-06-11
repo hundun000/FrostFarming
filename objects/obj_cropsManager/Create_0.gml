@@ -13,12 +13,25 @@ enum CropType{
 	BEET		=11
 
 }
+#macro NUM_COLUMN_CROPS_INFO 3
+
 #macro INFO_COLUMN_HARVEST_NAME 0
-#macro INFO_COLUMN_GRAWTHSTAGE_DURATION 1
+#macro INFO_COLUMN_GROWTHSTAGE_DURATION 1
 #macro INFO_COLUMN_VALUE 2
 
+/*
+DS of cropsInfoTable
+
+property\index		0		1		2		3	.....
+	name			n0		n1		n2		n3	.....
+	value			v0		v1		v2		v3	.....
+	.....
+	
+*/
+
+
 cropsInfoTable=noone;
-gridOfSoil=noone;
+gridsOfSoil=noone;
 
 registCropType("parsnip",1,10,id);
 registCropType("cauliflower",3,50,id);
@@ -37,6 +50,16 @@ registCropType("beet",1,12,id);
 
 
 debug_isPlanting=false;
-debug_curCrop=CropType.STARFRUIT;
+debug_curCrop=CropType.PARSNIP;
 debug_curX=-1;
 debug_curY=-1;
+
+#macro NUM_COLUMN_CROPS_STORAGE 4
+
+#macro CROPS_STORAGE_COLUMN_GRID_X 0
+#macro CROPS_STORAGE_COLUMN_GRID_Y 1
+#macro CROPS_STORAGE_COLUMN_TYPE 2
+#macro CROPS_STORAGE_COLUMN_DAYS_OLD 3
+
+cropsDataStorage=ds_grid_create(NUM_COLUMN_CROPS_STORAGE,1);
+ds_grid_clear(cropsDataStorage,noone);

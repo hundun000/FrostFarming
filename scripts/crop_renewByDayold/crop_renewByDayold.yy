@@ -1,8 +1,8 @@
 {
-    "id": "d68e575c-969e-40fd-91bf-a42a120ba65f",
+    "id": "71053031-d698-4c9d-b7cd-97f4a6ca1cf1",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "creatCrop",
+    "name": "crop_renewByDayold",
     "IsCompatibility": false,
     "IsDnD": false
 }

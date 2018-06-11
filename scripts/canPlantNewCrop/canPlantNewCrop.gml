@@ -9,7 +9,7 @@ if(!position_meeting(check_x,check_y,obj_soil)){
 	return false;
 }
 
-if(manager.gridOfSoil[# check_x div UNIT,check_y div UNIT]!=0){
+if(manager.gridsOfSoil[# check_x div UNIT,check_y div UNIT]!=0){
 	//show_debug_message("There is already plant.");
 	return false;
 }

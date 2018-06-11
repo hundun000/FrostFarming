@@ -17,11 +17,15 @@ if(debug_isPlanting){
 		var plant_x=(debug_curX div UNIT)*UNIT+UNIT/2;
 		var plant_y=(debug_curY div UNIT)*UNIT+UNIT/2;
 	
-		var test=creatCrop(plant_x,plant_y,debug_curCrop);
-		if(test!=noone){
-			test.m_growthStage=3;
-		}
+		creatCropByPos(plant_x,plant_y,debug_curCrop,0);
 	}
 }
 #endregion
 
+#region Growing
+if(instance_exists(obj_crop)&&keyboard_check_pressed(ord("G"))){
+	with(obj_crop){
+		crop_grow(self.id,1);
+	}
+}
+#endregion
