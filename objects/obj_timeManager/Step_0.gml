@@ -5,7 +5,52 @@ m_sumMinute+=TIME_SPEED;
 timeMinute=m_sumMinute mod 60;
 timeHour=m_sumMinute div 60;
 
-//----------- day pass -------------
+
+#region set sky darkness and color
+if(!isInsideHouse){
+	var skyDarks,skyColors;
+	var timeStart,timeEnd;
+	
+	
+	if(timeHour>DayPhaseThreshold.SUNRISE&&timeHour<=DayPhaseThreshold.DAY_START){
+		timeStart=DayPhaseThreshold.SUNRISE;
+		timeEnd=DayPhaseThreshold.DAY_START;
+		skyDarks=[MAX_DARKNESS,0.2];
+		skyColors=[c_night,c_orange];
+	}
+	else if(timeHour>DayPhaseThreshold.DAY_START&&timeHour<=DayPhaseThreshold.SUNSET){
+		timeStart=DayPhaseThreshold.DAY_START;
+		timeEnd=DayPhaseThreshold.SUNSET;
+		skyDarks=[0.2,0,0,0,0.2];
+		skyColors=[c_orange,c_orange,c_white,c_orange,c_orange];
+	}
+	else if(timeHour>DayPhaseThreshold.SUNSET&&timeHour<=DayPhaseThreshold.NIGHT_START){
+		timeStart=DayPhaseThreshold.SUNSET;
+		timeEnd=DayPhaseThreshold.NIGHT_START;
+		skyDarks=[0.2,MAX_DARKNESS];
+		skyColors=[c_orange,c_navy ,c_night];
+	}
+	else{
+		timeStart=DayPhaseThreshold.NIGHT_START;
+		timeEnd=DayPhaseThreshold.SUNRISE+24;//new day
+		skyDarks=[MAX_DARKNESS];
+		skyColors=[c_night];
+	}
+	
+	var phaseRate=((timeHour-timeStart+24) mod 24)/(timeEnd-timeStart);
+	
+	var colorIndex=phaseRate*(array_length_1d(skyColors)-1);
+	skyColor=merge_color(skyColors[floor(colorIndex)],skyColors[ceil(colorIndex)],colorIndex-floor(colorIndex));
+	
+	var darkIndex=phaseRate*(array_length_1d(skyDarks)-1);
+	skyDarkness=merge_number(skyDarks[floor(darkIndex)],skyDarks[ceil(darkIndex)],darkIndex-floor(darkIndex));
+	
+	
+}
+#endregion
+
+
+#region one day pass
 if(timeHour==24){
 	m_sumMinute=0;
 	m_day++;
@@ -50,6 +95,7 @@ if(timeHour==24){
 	
 	
 }
+#endregion
 
-darkness=MIN_DARKNESS*(abs(timeHour-12)/12);
+
 

@@ -1,0 +1,2 @@
+ds_grid_destroy(grid_playerInfo);
+ds_grid_destroy(grid_backpackSlots);
