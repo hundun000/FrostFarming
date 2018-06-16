@@ -1,3 +1,8 @@
+//--- override -------
+event_inherited();
+m_isCollision=false;
+
+//----- const value -----
 FRAME_WIDTH=32;
 FRAME_HEIGHT=64;
 ALARM_INDEX_SPARKLE=1;

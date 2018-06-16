@@ -5,7 +5,10 @@ draw_sprite_ext(SPR_INVENTORY,0,INVENTORY_X,INVENTORY_Y,
 	INVENTORY_SCALE,INVENTORY_SCALE,0,c_white,1
 );
 
-#region draw info 
+//quick reference
+var manager=global.thisGame.itemManager;
+	
+#region draw player info 
 var text;
 draw_set_font(fnt_INFO_NAME);
 draw_set_color(c_black);
@@ -47,8 +50,8 @@ for(i=0;i<BACKPACK_SLOTS_WIDTH;i++){
 			if(itemType!=ItemType.NONE){
 							
 				
-				item_x_of_sprite=(itemType mod ITEMS_SPR_NUM_COLUMN)*UNIT;
-				item_y_of_sprite=(itemType div ITEMS_SPR_NUM_COLUMN)*UNIT;
+				item_x_of_sprite=(itemType mod manager.ITEMS_SPR_NUM_COLUMN)*UNIT;
+				item_y_of_sprite=(itemType div manager.ITEMS_SPR_NUM_COLUMN)*UNIT;
 				
 				if(slot_index==m_pickUpSlotIndex){
 					draw_sprite_part_ext(spr_items,0,item_x_of_sprite,item_y_of_sprite,UNIT,UNIT,slot_x,slot_y,INVENTORY_SCALE,INVENTORY_SCALE,c_white,0.2);
@@ -77,14 +80,27 @@ for(i=0;i<BACKPACK_SLOTS_WIDTH;i++){
 }
 #endregion
 
+#region draw holding item
 if(m_pickUpSlotIndex!=-1){
 	slot_index=m_pickUpSlotIndex;
 	itemType=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_ITEM_TYPE,slot_index];
 	itemNum=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_NUM,slot_index];
-	item_x_of_sprite=(itemType mod ITEMS_SPR_NUM_COLUMN)*UNIT;
-	item_y_of_sprite=(itemType div ITEMS_SPR_NUM_COLUMN)*UNIT;
+	item_x_of_sprite=(itemType mod manager.ITEMS_SPR_NUM_COLUMN)*UNIT;
+	item_y_of_sprite=(itemType div manager.ITEMS_SPR_NUM_COLUMN)*UNIT;
 	var draw_pick_x=device_mouse_x_to_gui(0)-UNIT/2*INVENTORY_SCALE;//pick the center of slot
 	var draw_pick_y=device_mouse_y_to_gui(0)-UNIT/2*INVENTORY_SCALE;
 	draw_sprite_part_ext(spr_items,0,item_x_of_sprite,item_y_of_sprite,UNIT,UNIT,draw_pick_x,draw_pick_y,INVENTORY_SCALE,INVENTORY_SCALE,c_white,1);
 	draw_text(draw_pick_x+SLOT_INSIDE_TEXT_OFFSET_X,draw_pick_y+SLOT_INSIDE_TEXT_OFFSET_Y,string(itemNum));
 }
+#endregion
+
+#region draw info board
+//draw only when not pick up
+if(mouseSlotIndex!=-1&&m_pickUpSlotIndex==-1){
+	var mouseItemType=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_ITEM_TYPE,mouseSlotIndex];
+	if(mouseItemType!=ItemType.NONE){
+		var descriprion=manager.grid_itemInfo[# ITEM_INFO_COLUMN_DESCRIPTION,mouseItemType];	
+		draw_text(mouseGUI_x+UNIT/2*INVENTORY_SCALE,mouseGUI_y+UNIT/2*INVENTORY_SCALE,descriprion);
+	}
+}
+#endregion

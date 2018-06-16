@@ -30,10 +30,25 @@ else
 
 
 //---------- collision check ,change movement -------
-while(move_x!=0&&place_meeting(x+move_x,y,obj_collision))
-	move_x=sign(move_x)*(abs(move_x)-1);
-while(move_y!=0&&place_meeting(x,y+move_y,obj_collision))
-	move_y=sign(move_y)*(abs(move_y)-1);
+//first loop,only set isCollosion;Second and more loop,reduce movement
+var isCollosion=noone;
+while(move_x!=0&&place_meeting(x+move_x,y,obj_collision)&&(isCollosion==noone||isCollosion==true)){
+	if(isCollosion==noone){
+		var ins_collision=instance_place(x+move_x,y,obj_collision);
+		isCollosion=ins_collision.m_isCollision;
+	}
+	else
+		move_x=sign(move_x)*(abs(move_x)-1);
+}
+isCollosion=noone;
+while(move_y!=0&&place_meeting(x,y+move_y,obj_collision)&&(isCollosion==noone||isCollosion==true)){
+	if(isCollosion==noone){
+		var ins_collision=instance_place(x,y+move_y,obj_collision);
+		isCollosion=ins_collision.m_isCollision;
+	}
+	else
+		move_y=sign(move_y)*(abs(move_y)-1);
+}
 
 
 //---------- handle movement -------

@@ -13,6 +13,7 @@ FONT_TEXT_16=font_add("ARIALUNI_fixed.ttf",16,0,0,32,128);
 cropsManager=instance_create_depth(0,0,MANAGER_DEPTH,obj_cropsManager);
 depthSystemDrawer=instance_create_layer(0,0,LAYER_INSTANCE,obj_depthSystemDrawer);
 timeManager=instance_create_depth(0,0,MANAGER_DEPTH,obj_timeManager);
+itemManager=instance_create_depth(0,0,MANAGER_DEPTH,obj_itemManager);
 
 playerBackpack=instance_create_depth(0,0,INVENTORY_DEPTH,obj_backpack);
 #endregion
@@ -38,6 +39,5 @@ backpack_setItem(ItemType.PARSNIP,5,18);
 backpack_setItem(ItemType.PARSNIP_SEED,5,19);
 backpack_setItem(ItemType.CAULIFLOWER,5,20);
 backpack_setItem(ItemType.CAULIFLOWER_SEED,5,21);
-backpack_setItem(ItemType.PARSNIP,2,22);
 room_goto_next();
 #endregion

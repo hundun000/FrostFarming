@@ -2,7 +2,7 @@
     "id": "b157eb6b-3c71-4abd-9695-2f946d5ab483",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "absObj_depth_collision",
+    "name": "absObj_depth_collisionable",
     "eventList": [
         
     ],

@@ -31,25 +31,13 @@ SLOTS_BIG_SPACE=12;
 SLOT_INSIDE_TEXT_OFFSET_X=UNIT*0.6*INVENTORY_SCALE;
 SLOT_INSIDE_TEXT_OFFSET_Y=UNIT*0.6*INVENTORY_SCALE;
 
-ITEMS_SPR_NUM_COLUMN=sprite_get_width(spr_items) div UNIT;
-ITEMS_SPR_NUM_ROW=sprite_get_height(spr_items) div UNIT;
+
 
 
 #endregion
 
 #region items
-#macro ITEMS_ID_START_HARVEST 10
-#macro ITEMS_ID_START_CROP_SEED 30
 
-enum ItemType{
-	NONE=0,
-	
-	PARSNIP				=ITEMS_ID_START_HARVEST		+1,
-	CAULIFLOWER			=ITEMS_ID_START_HARVEST		+2,
-	
-	PARSNIP_SEED		=ITEMS_ID_START_CROP_SEED	+1,
-	CAULIFLOWER_SEED	=ITEMS_ID_START_CROP_SEED	+2,
-}
 
 BACKPACK_SLOTS_WIDTH=9;
 BACKPACK_SLOTS_HEIGHT=4;
@@ -88,8 +76,8 @@ grid_playerInfo[# PLAYER_INFO_COLUMN_VALUE,PLAYER_INFO_ROW_COIN]=irandom_range(0
 #region item operate
 mouseSlotIndex=-1;
 m_pickUpSlotIndex=-1;
-m_mouseSlotGrid_x=-1;
-m_mouseSlotGrid_y=-1;
+mouseGUI_x=-1;
+mouseGUI_y=-1;
 
 
 #endregion
