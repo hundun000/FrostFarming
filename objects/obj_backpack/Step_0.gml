@@ -1,6 +1,17 @@
-if(keyboard_check_pressed(ord("E")))
-	isShowBackpack=!isShowBackpack;
-if(!isShowBackpack) exit;
+if(keyboard_check_pressed(ord("E"))){
+	switch(backpackState){
+		case BackpackState.OPEN:
+			backpackState=BackpackState.BOTTOM;
+			break;
+		case BackpackState.BOTTOM:
+			backpackState=BackpackState.OPEN;
+			break;
+	}
+}
+
+
+switch(backpackState){
+	case BackpackState.OPEN:
 
 #region get mouse slot
 
@@ -103,3 +114,6 @@ if(mouse_check_button_pressed(mb_left)){
 
 
 #endregion
+
+	break;
+}

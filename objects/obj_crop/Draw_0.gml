@@ -14,3 +14,6 @@ if(sparkleFrame>=0){
 		alarm[ALARM_INDEX_SPARKLE]=random_range(4,5)*GAME_FPS;
 	}
 }
+
+draw_rectangle_color(bbox_left,bbox_top,bbox_right,bbox_bottom,c_yellow,c_yellow,c_yellow,c_yellow,true);
+draw_rectangle_color(x-1,y-1,x+1,y+1,c_red,c_red,c_red,c_red,false);

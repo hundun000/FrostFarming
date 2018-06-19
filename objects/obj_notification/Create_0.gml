@@ -8,5 +8,5 @@ grid_notificationContent=noone;
 #macro NOTIFICATION_CONTENT_COLUMN_NAME 0
 #macro NOTIFICATION_CONTENT_COLUMN_NUM_CHANGE 1
 
-GUI_HEIGHT=display_get_gui_height();
+
 fnt_notification=global.thisGame.FONT_TEXT_16;

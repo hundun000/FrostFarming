@@ -7,7 +7,8 @@
         "8072ac3b-8a74-4b81-86cb-f15f19c26617",
         "2b648fa6-b8a1-4e81-86f2-6573cdda55db",
         "64878c70-2468-4a6d-bfcc-6a796c1389ae",
-        "93462f43-ce8b-4ab7-b7ee-74e9438653f0"
+        "93462f43-ce8b-4ab7-b7ee-74e9438653f0",
+        "1c27b7b5-51d8-4399-b92b-a76da869a42f"
     ],
     "filterType": "GMObject",
     "folderName": "Role",

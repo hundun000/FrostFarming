@@ -11,7 +11,7 @@ else{
 	//pull to player area check
 	if(point_in_rectangle(global.thisPlayer.x,global.thisPlayer.y,x-r,y-r,x+r,y+r)){
 		
-		r=2;
+		r=4;
 		//player pick up area check
 		if(!point_in_rectangle(global.thisPlayer.x,global.thisPlayer.y,x-r,y-r,x+r,y+r)){
 			x=lerp(x,global.thisPlayer.x,0.3);

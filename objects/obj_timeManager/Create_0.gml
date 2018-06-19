@@ -26,8 +26,7 @@ m_season=SeasonType.SPRING;
 
 TIME_SPEED=5; //game second per frame 
 
-GUI_WIDTH=display_get_gui_width();
-GUI_HEIGHT=display_get_gui_height();
+
 
 NUM_DAY_PER_SEASON=28;
 

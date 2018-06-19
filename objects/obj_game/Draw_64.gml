@@ -15,6 +15,6 @@ if(tansitionAlpha>=0){
 	}
 	
 	draw_set_alpha(tansitionAlpha);
-	draw_rectangle_color(0,0,GUI_WIDTH,GUI_HEIGHT,c_black,c_black,c_black,c_black,false);
+	draw_rectangle_color(0,0,GAME_WIDTH,GAME_HEIGHT,c_black,c_black,c_black,c_black,false);
 	draw_set_alpha(1);
 }

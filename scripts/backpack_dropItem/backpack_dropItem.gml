@@ -18,7 +18,7 @@ for(var i=0;i<dropNum;i++){
 	}
 }
 
-addItemNotifiction(pickUpItemType,dropNum);
+addItemNotifiction(pickUpItemType,-dropNum);
 
 
 	

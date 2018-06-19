@@ -3,6 +3,7 @@
 var itemType=argument0;
 var itemNumchange=argument1;
 
+var itemName=global.thisGame.itemManager.grid_itemInfo[# ITEM_INFO_COLUMN_NAME,itemType];
 
 //get ins_notification
 var ins_notification;
@@ -21,7 +22,7 @@ if(ins_notification.grid_notificationContent==noone){
 else{
 	var height=ds_grid_height(ins_notification.grid_notificationContent);
 	for(var i=0;i<height;i++)
-		if(ins_notification.grid_notificationContent[# NOTIFICATION_CONTENT_COLUMN_NAME,i]==itemType){
+		if(ins_notification.grid_notificationContent[# NOTIFICATION_CONTENT_COLUMN_NAME,i]==itemName){
 			targetRow=i;
 			break;
 		}
@@ -33,7 +34,7 @@ else{
 }
 
 //init notification content
-ins_notification.grid_notificationContent[# NOTIFICATION_CONTENT_COLUMN_NAME,targetRow]=global.thisGame.itemManager.grid_itemInfo[# ITEM_INFO_COLUMN_NAME,itemType];
+ins_notification.grid_notificationContent[# NOTIFICATION_CONTENT_COLUMN_NAME,targetRow]=itemName;
 ins_notification.grid_notificationContent[# NOTIFICATION_CONTENT_COLUMN_NUM_CHANGE,targetRow]+=itemNumchange;
 //reset fade away
 ins_notification.alpha=1;
