@@ -48,11 +48,11 @@ show_debug_message(string(mouseSlotGrid_x)+","+string(mouseSlotGrid_y)+","+strin
 
 #region operate item
 
-//release holdind
+//release pick-up
 if(mouse_check_button_pressed(mb_right))
 	m_pickUpSlotIndex=-1;
 
-//--------- hold/holding item ----------
+//--------- put-down/pick-up item ----------
 
 if(mouse_check_button_pressed(mb_left)){
 	
@@ -62,7 +62,7 @@ if(mouse_check_button_pressed(mb_left)){
 		var mouseItemType=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_ITEM_TYPE,mouseSlotIndex];
 		var mouseItemNum=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_NUM,mouseSlotIndex];	
 	
-		//is holding something
+		//is pick-up something
 		if(m_pickUpSlotIndex!=-1){
 			var pickUpItemType=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_ITEM_TYPE,m_pickUpSlotIndex];
 			var pickUpItemNum=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_NUM,m_pickUpSlotIndex];
@@ -91,7 +91,7 @@ if(mouse_check_button_pressed(mb_left)){
 			}
 		}
 		else{
-			//no holding,try to pick up
+			//no pick-up,try to pick up
 			if(mouseItemType!=ItemType.NONE)
 				m_pickUpSlotIndex=mouseSlotIndex;
 		}		
@@ -99,7 +99,7 @@ if(mouse_check_button_pressed(mb_left)){
 	}
 	else{
 		#region target position is outside board
-		//is holding something,try to drop one item
+		//is pick-up something,try to drop one item
 		if(m_pickUpSlotIndex!=-1){
 			backpack_dropItem(m_pickUpSlotIndex,1);
 			if(grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_NUM,m_pickUpSlotIndex]==0)

@@ -12,5 +12,3 @@ DEFAULT_SPEED=NORMAL_SPEED;
 
 
 global.thisPlayer=id;
-
-

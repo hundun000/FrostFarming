@@ -28,7 +28,6 @@ switch(backpackState){
 
 	#region draw slot
 	draw_set_font(fnt_SLOT_NUMBER);
-	draw_set_color(c_white);
 	var i,j;
 	var slot_x,slot_y;
 	var slot_index;
@@ -83,7 +82,7 @@ switch(backpackState){
 	}
 	#endregion
 
-	#region draw holding item
+	#region draw pick-up item
 	if(m_pickUpSlotIndex!=-1){
 		slot_index=m_pickUpSlotIndex;
 		itemType=grid_backpackSlots[# BACKPACK_SLOTS_COLUMN_ITEM_TYPE,slot_index];
@@ -119,9 +118,8 @@ switch(backpackState){
 		INVENTORY_SCALE,INVENTORY_SCALE,0,c_white,1
 	);
 	
-	#region	draw slot
+	//--------	draw slot
 	draw_set_font(fnt_SLOT_NUMBER);
-	draw_set_color(c_white);
 	var i,j;
 	var slot_x,slot_y;
 	var slot_index;
@@ -149,13 +147,12 @@ switch(backpackState){
 				item_x_of_sprite=(itemType mod manager.ITEMS_SPR_NUM_COLUMN)*UNIT;
 				item_y_of_sprite=(itemType div manager.ITEMS_SPR_NUM_COLUMN)*UNIT;
 				
-				if(slot_index==m_pickUpSlotIndex){
-					draw_sprite_part_ext(spr_items,0,item_x_of_sprite,item_y_of_sprite,UNIT,UNIT,slot_x,slot_y,INVENTORY_SCALE,INVENTORY_SCALE,c_white,0.2);
-				}
-				else{
-					draw_sprite_part_ext(spr_items,0,item_x_of_sprite,item_y_of_sprite,UNIT,UNIT,slot_x,slot_y,INVENTORY_SCALE,INVENTORY_SCALE,c_white,1);
-				}
-				
+				var itemAlpha;
+				if(slot_index==m_pickUpSlotIndex)
+					itemAlpha=0.2;
+				else
+					itemAlpha=1;
+				draw_sprite_part_ext(spr_items,0,item_x_of_sprite,item_y_of_sprite,UNIT,UNIT,slot_x,slot_y,INVENTORY_SCALE,INVENTORY_SCALE,c_white,itemAlpha);
 				
 				draw_text(slot_x+SLOT_INSIDE_TEXT_OFFSET_X,slot_y+SLOT_INSIDE_TEXT_OFFSET_Y,string(itemNum));
 			
@@ -171,7 +168,6 @@ switch(backpackState){
 
 
 	}
-	#endregion
 	
 	
 	#endregion

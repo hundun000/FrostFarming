@@ -21,3 +21,4 @@ for(i=0;i<NUM_ROLE_SPRITE_PART;i++)
 		draw_sprite_part(ROLE_SPRITE_PART[i],0,floor(m_x_frame)*FRAME_SIZE,floor(m_y_frame)*FRAME_SIZE,FRAME_SIZE,FRAME_SIZE,x_draw,y_draw);
 
 draw_rectangle_color(bbox_left,bbox_top,bbox_right,bbox_bottom,c_yellow,c_yellow,c_yellow,c_yellow,true);
+draw_rectangle_color(x-1,y-1,x+1,y+1,c_red,c_red,c_red,c_red,false);

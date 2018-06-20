@@ -27,4 +27,6 @@ Y_OFFSET=sprite_get_yoffset(sprite_index);
 move_x=0;
 move_y=0;
 
-m_facing=DirectionType.DOWN;
+movingDirectionType=DirectionType.DOWN;
+renewRoleFrameByFacing(id);
+movingDirectionType=DirectionType.IDLE;

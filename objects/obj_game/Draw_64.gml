@@ -5,7 +5,7 @@ if(tansitionAlpha>=0){
 		if(tansitionAlpha>=1){	
 			global.thisPlayer.x=spawnX;
 			global.thisPlayer.y=spawnY;
-			global.thisPlayer.m_facing=spawnFacing;
+			global.thisPlayer.movingDirectionType=spawnFacing;
 			renewRoleFrameByFacing(global.thisPlayer);
 			room_goto(spawnRoom);
 		}

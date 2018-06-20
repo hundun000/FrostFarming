@@ -14,18 +14,18 @@ move_y=(input_down-input_up)*m_speed;
 
 if(move_x!=0){
 	switch(sign(move_x)){
-		case 1: m_facing=DirectionType.RIGHT; break;	
-		case -1: m_facing=DirectionType.LEFT; break;	
+		case 1: movingDirectionType=DirectionType.RIGHT; break;	
+		case -1: movingDirectionType=DirectionType.LEFT; break;	
 	}
 }
 else if(move_y!=0){
 	switch(sign(move_y)){
-		case 1: m_facing=DirectionType.DOWN; break;	
-		case -1: m_facing=DirectionType.UP; break;	
+		case 1: movingDirectionType=DirectionType.DOWN; break;	
+		case -1: movingDirectionType=DirectionType.UP; break;	
 	}
 }
 else
-	m_facing=DirectionType.IDLE;
+	movingDirectionType=DirectionType.IDLE;
 
 
 

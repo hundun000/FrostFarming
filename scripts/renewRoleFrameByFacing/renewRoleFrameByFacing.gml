@@ -1,7 +1,7 @@
 ///argument0 role
 var role=argument0;
 
-switch(role.m_facing){
+switch(role.movingDirectionType){
 	case DirectionType.UP:
 		role.m_y_frame=Y_FRAME_MOVE_UP;
 		break;
